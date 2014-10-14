@@ -1,5 +1,16 @@
 module GoL
 
+-- Square
+--
+-- > SortedSet.toList square
+-- [(0, 0), (0, 1), (1, 0), (1, 1)] : List (Int, Int)
+-- > SortedSet.toList $ nextWorld square
+-- [(0, 0), (0, 1), (1, 0), (1, 1)] : List (Int, Int)
+-- > SortedSet.toList $ nextWorld $ nextWorld square
+-- [(0, 0), (0, 1), (1, 0), (1, 1)] : List (Int, Int)
+
+-- Flip flop
+--
 -- > SortedSet.toList world
 -- [(0, -1), (0, 0), (0, 1)] : List (Int, Int)
 --
@@ -60,5 +71,8 @@ nextWorld world = SortedSet.fromList $
                   underConsideration $
                   SortedSet.toList world
 
-world : SortedSet Coord
-world = fromList [(0,-1), (0,0), (0,1)]
+flipflop : SortedSet Coord
+flipflop = fromList [(0,-1), (0,0), (0,1)]
+
+square : SortedSet Coord
+square = fromList [(0,0), (1,0), (0,1), (1,1)]
